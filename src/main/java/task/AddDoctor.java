@@ -8,9 +8,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import userinterface.HospitalHomeSection;
-
 import java.util.List;
-
 import static userinterface.AddDoctorSection.*;
 import static userinterface.HospitalHomeSection.ADD_DOCTOR_BUTTOM;
 
@@ -23,8 +21,8 @@ public class AddDoctor implements Task {
         this.hospitalData = hospitalData;
     }
 
-    public static AddDoctor withThe(List<HospitalAdministrationData> data) {
-        return Tasks.instrumented(AddDoctor.class, data);
+    public static AddDoctor withThe(List<HospitalAdministrationData> information) {
+        return Tasks.instrumented(AddDoctor.class, information);
     }
 
     @Override

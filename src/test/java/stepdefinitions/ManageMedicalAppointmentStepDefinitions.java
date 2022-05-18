@@ -7,7 +7,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.HospitalAdministrationData;
 import net.serenitybdd.screenplay.GivenWhenThen;
-import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import questions.OperationCompleted;
 import task.AddDoctor;
@@ -15,8 +14,7 @@ import task.AddPatient;
 import task.OpenHospitalPage;
 import task.ScheduleAppointment;
 import java.util.List;
-import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class ManageMedicalAppointmentStepDefinitions {
 
@@ -32,7 +30,7 @@ public class ManageMedicalAppointmentStepDefinitions {
 
     @Given("^the user enters in the hospital administration system$")
     public void theUserEntersInTheHospitalAdministrationSystem() {
-        OnStage.theActorCalled("Dylan").wasAbleTo(OpenHospitalPage.andEnter());
+        theActorCalled("Dylan").wasAbleTo(OpenHospitalPage.andEnter());
     }
 
     @Given("^Dylan needs adds a new doctor$")
@@ -41,7 +39,7 @@ public class ManageMedicalAppointmentStepDefinitions {
 
     @When("^he add the doctor in the hospital administration system$")
     public void heAddTheDoctorInTheHospitalAdministrationSystem(List<HospitalAdministrationData> information) {
-        OnStage.theActorInTheSpotlight().attemptsTo(AddDoctor.withThe(information));
+        theActorInTheSpotlight().attemptsTo(AddDoctor.withThe(information));
     }
 
     @Given("^Dylan needs adds a new patient$")
@@ -50,7 +48,7 @@ public class ManageMedicalAppointmentStepDefinitions {
 
     @When("^he add the patient in the hospital administration system$")
     public void heAddThePatientInTheHospitalAdministrationSystem(List<HospitalAdministrationData> information) {
-        OnStage.theActorInTheSpotlight().attemptsTo(AddPatient.withThe(information));
+        theActorInTheSpotlight().attemptsTo(AddPatient.withThe(information));
 
     }
 
@@ -60,7 +58,7 @@ public class ManageMedicalAppointmentStepDefinitions {
 
     @When("^he make the appointment scheduling in the hospital administration system$")
     public void heMakeTheAppointmentSchedulingInTheHospitalAdministrationSystem(List<HospitalAdministrationData> information) {
-        OnStage.theActorInTheSpotlight().attemptsTo(ScheduleAppointment.withThe(information));
+        theActorInTheSpotlight().attemptsTo(ScheduleAppointment.withThe(information));
     }
 
     @Then("^he looks in the screen for the message of (.*)$")

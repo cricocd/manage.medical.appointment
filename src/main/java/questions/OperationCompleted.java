@@ -3,7 +3,7 @@ package questions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
-import userinterface.HospitalHomeSection;
+import static userinterface.HospitalHomeSection.SUCCESS_RESULT_TEXT;
 
 public class OperationCompleted implements Question<Boolean> {
 
@@ -20,7 +20,7 @@ public class OperationCompleted implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor){
         boolean result;
-        String addDoctorResult = Text.of(HospitalHomeSection.SUCCESS_RESULT_TEXT).viewedBy(actor).asString();
+        String addDoctorResult = Text.of(SUCCESS_RESULT_TEXT).viewedBy(actor).asString();
         if(successfulResult.equals(addDoctorResult)){
             result = true;
         } else {

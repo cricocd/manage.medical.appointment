@@ -3,8 +3,8 @@ package task;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
-import net.serenitybdd.screenplay.actions.Open;
 import userinterface.HospitalHomeSection;
+import static net.serenitybdd.screenplay.actions.Open.browserOn;
 
 public class OpenHospitalPage implements Task {
 
@@ -17,7 +17,7 @@ public class OpenHospitalPage implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Open.browserOn(hospitalHomeSection)
+                browserOn(hospitalHomeSection)
         );
     }
 }
