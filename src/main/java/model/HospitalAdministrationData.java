@@ -10,6 +10,7 @@ public class HospitalAdministrationData {
     private String patientIdentificationId;
     private String observation;
     private String successResult;
+    private String menu;
 
     public String getFullName() {
         return fullName;
@@ -73,5 +74,13 @@ public class HospitalAdministrationData {
 
     public void setSuccessResult(String successResult) {
         this.successResult = successResult;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 }
