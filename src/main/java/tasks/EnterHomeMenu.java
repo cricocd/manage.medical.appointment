@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.conditions.Check;
 import userinterface.HospitalHomeSection;
 import java.util.List;
 
@@ -24,13 +25,9 @@ public class EnterHomeMenu implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        if(menu.equals(hospitalData.get(0).getMenu())){
-            actor.wasAbleTo(Click.on(HospitalHomeSection.ADD_DOCTOR_BUTTOM));
-        }else if(menu.equals(hospitalData.get(0).getMenu())){
-            actor.wasAbleTo(Click.on(HospitalHomeSection.ADD_PATIENT_BUTTOM));
-        }else if(menu.equals(hospitalData.get(0).getMenu())){
-            actor.wasAbleTo(Click.on(HospitalHomeSection.SCHEDULE_APPOINTMENT_BUTTOM));
-        }
+        actor.attemptsTo(Check.whether(hospitalData.get(0).getMenu().equals(menu)).andIfSo(
+                Click.on(HospitalHomeSection.ADD_DOCTOR_BUTTOM)).andIfSo(
+                Click.on(HospitalHomeSection.ADD_PATIENT_BUTTOM)).andIfSo(
+                Click.on(HospitalHomeSection.SCHEDULE_APPOINTMENT_BUTTOM)));
     }
 }
